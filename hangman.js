@@ -18,7 +18,8 @@ let words = [
     "analytic",
     "turing",
     "pytorch",
-    "generative"
+    "generativeai",
+    "innovation"
 ];
 
 // ============================================================
