@@ -3,12 +3,8 @@ import confetti from "https://cdn.skypack.dev/canvas-confetti";
 
 let words = [
     "algorithm",
-    "machine learning",
-    "neural network",
-    "data science",
     "robot",
     "intelligence",
-    "automation",
     "cognitive",
     "prediction",
     "deepfake",
@@ -16,17 +12,13 @@ let words = [
     "virtual",
     "sensor",
     "assistant",
-    "big data",
-    "automation",
-    "computer vision",
     "perception",
     "augmented",
     "decision",
     "analytic",
-    "automation", 
-    "pattern recognition", 
     "turing",
     "pytorch",
+    "generative"
 ];
 
 // ============================================================
@@ -59,7 +51,6 @@ const winModal = document.querySelector("#modal-win");
 const loseModal = document.querySelector("#modal-lose");
 const secretWord = document.querySelector("#secret-word");
 const aboutModal = document.querySelector("#modal-about");
-
 // starting script
 disableBtns();
 
@@ -164,7 +155,7 @@ function hint() {
 
 function resetAll() {
     tries = 0;
-    document.querySelector(".tries").innerHTML = "tries";
+    document.querySelector(".tries").innerHTML = "";
     startGame.innerHTML = "Play Again";
     img.src = "./assets/images/0.png";
     word = [];

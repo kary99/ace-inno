@@ -32,8 +32,16 @@ button {
   font: inherit;
 }
 body {
-  background-color: #2352a3;
-  position: relative;
+  background: rgb(9,30,121);
+background: radial-gradient(circle, rgba(9,30,121,0.9640231092436975) 27%, rgba(0,212,255,1) 100%);
+  /* background-color: #2352a3; */
+  /* background: linear-gradient(to bottom right, violet, purple); */
+  /* background: rgb(63,94,251);
+  background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%); */
+  /* background-image: linear-gradient(to right bottom, #e72525, #eb0049, #e4006d, #cf0092, #aa00b4, #8f41d4, #6760ed, #0078ff, #00a0ff, #00baf0, #00cca7, #00d653);
+  position: relative; */
+  /* background: rgb(2,0,36);
+background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(9,30,121,0.9640231092436975) 27%, rgba(0,212,255,1) 100%); */
 }
 .caution {
   color: red;
@@ -500,7 +508,7 @@ button.fail::before {
 
 .logos{
   display: flex;
-  flex-direction: right;
+  flex-direction: left;
 
 }
 
@@ -513,11 +521,27 @@ button.fail::before {
 .infocepts-logo{
   height: 80px;
   margin-top: 40px;
-  margin-left: 515px;
+  margin-left: 0px;
 }
 
 .talent-development-logo{
   margin-top: 20px;
   margin-left: 20px;
   height: 100px;
+}
+
+.master{
+  display: flex;
+}
+
+#aibot{
+  height: 180px;
+  margin-left: 230px;
+}
+
+#aibot2{
+  height: 180px;
+  margin-right: 230px;
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
 }
