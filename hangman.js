@@ -19,7 +19,10 @@ let words = [
     "turing",
     "pytorch",
     "generativeai",
-    "innovation"
+    "innovation",
+	"clustering",
+	"sematicai", 
+	"copilot" 
 ];
 
 // ============================================================
