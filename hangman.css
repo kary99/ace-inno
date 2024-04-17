@@ -60,7 +60,9 @@ background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(9,30,121,0.964023109
   grid-template-columns: repeat(2, 1fr);
 }
 .title-cont {
+  margin-bottom: 120px;
   place-self: center;
+  margin-left: 100px;
 }
 
 /* titles */
@@ -72,9 +74,10 @@ background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(9,30,121,0.964023109
 }
 
 .sub-title {
-  color: #c2c2c2;
-  font-family: segoe;
-  font-size: 1.2rem;
+  color: #ff5386;
+  letter-spacing: 1.5px;
+  font-family: cheri;
+  font-size: 1.75rem;
   line-height: 1.5;
   margin-bottom: 1rem;
 }
@@ -146,6 +149,7 @@ background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(9,30,121,0.964023109
 .tries-cont {
   height: 50px;
   position: relative;
+  margin-bottom: 10px;
 }
 .tries {
   position: absolute;
@@ -520,7 +524,7 @@ button.fail::before {
 
 .infocepts-logo{
   height: 80px;
-  margin-top: 40px;
+  margin-top: 20px;
   margin-left: 0px;
 }
 
@@ -535,13 +539,31 @@ button.fail::before {
 }
 
 #aibot{
-  height: 180px;
+  height: 200px;
   margin-left: 230px;
 }
 
 #aibot2{
-  height: 180px;
+  height: 200px;
   margin-right: 230px;
   -webkit-transform: scaleX(-1);
   transform: scaleX(-1);
+}
+
+#hint-text{
+  position:relative;
+  margin-top: 10px;
+  top: 100%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  -webkit-transform: translateY(-50%) translateX(-50%);
+  -moz-transform: translateY(-50%) translateX(-50%);
+  -ms-transform: translateY(-50%) translateX(-50%);
+  -o-transform: translateY(-50%) translateX(-50%);
+  font-size: 1.5rem;
+  font-family: segoe;
+  color: #fff;
+  text-align: center;
+  font-style: italic;
+  color: yellow;
 }

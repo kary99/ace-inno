@@ -25,6 +25,31 @@ let words = [
 	"copilot" 
 ];
 
+let wordhints = [
+    {word: "algorithm", hint: "Hint: A set of rules or instructions for solving a problem or achieving a goal"},
+    {word: "robot", hint: "Hint: A machine capable of carrying out a complex series of actions automatically"}, 
+    {word: "intelligence", hint: "Hint: The ability to acquire and apply knowledge and skills"}, 
+    {word: "cognitive", hint: "Hint: Related to processes of thought, such as perception, memory, and reasoning"}, 
+    {word: "prediction", hint: "Hint: The act of estimating or forecasting future events or outcomes"}, 
+    {word: "deepfake", hint: "Hint: A synthetic media in which a person in an existing image or video is replaced with someone else's likeness"}, 
+    {word: "chatbot", hint: "Hint: A computer program designed to simulate conversation with human users"}, 
+    {word: "virtual", hint: "Hint: Existing or occurring on a computer or on the internet"}, 
+    {word: "sensor", hint: "Hint: A device that detects or measures physical properties and sends signals to a computer"}, 
+    {word: "assistant", hint: "Hint: A person or software program that provides help or support"}, 
+    {word: "perception", hint: "Hint: The process of recognizing and interpreting sensory stimuli"}, 
+    {word: "augmented", hint: "Hint: Having been made greater in size or value"}, 
+    {word: "decision", hint: "Hint: A conclusion or resolution reached after consideration"}, 
+    {word: "analytic", hint: "Hint: Relating to or using logical analysis and reasoning"}, 
+    {word: "turing", hint: "Hint: Pioneer in computer science, known for the Turing Test and contributions to AI"}, 
+    {word: "pytorch", hint: "Hint: An open-source machine learning library for Python"}, 
+    {word: "generativeai", hint: "Hint: AI techniques that create new content, such as images, text, or music"}, 
+    {word: "innovation", hint: "Hint: The introduction of something new or a new idea, method, or device"}, 
+    {word: "clustering", hint: "Hint: The process of grouping similar items together in a set"}, 
+    {word: "semanticai", hint: "Hint: AI focused on understanding the meaning of words and sentences in a language"}, 
+    {word: "copilot", hint: "Hint: An AI-powered assistant designed to help developers write code"}
+];
+
+
 // ============================================================
 // Changing height of main div in getRndWord on w=768px if letters exceeds 7
 const winWidth = window.innerWidth;
@@ -47,6 +72,7 @@ let word = [];
 let tries = 0;
 let totalTries = null;
 let firstTime = true;
+let thisword = ""
 
 // Modals
 const hintModal = document.querySelector("#modal-hint");
@@ -65,6 +91,8 @@ start_button.addEventListener("click", () => {
     clearMainDiv();
     genWrdBlocks();
     setTries();
+    displayHint();
+    // document.getElementById("hint").style.display = "inline-block";
 });
 
 function play(id) {
@@ -100,6 +128,23 @@ function play(id) {
 
 // =========================================
 
+function displayHint(){
+    console.log(dupWord.join(""));
+    const currentWord = dupWord.join("");
+    const hintObj = getHint(currentWord);
+
+    if (hintObj) {
+        document.getElementById("hint-text").innerText = hintObj.hint;
+    } else {
+        // If hint not found, display a default message
+        document.getElementById("hint-text").innerText = "Hint not available for this word";
+    }
+}
+function getHint(word) {
+    const hint = wordhints.find(item => item.word == word);
+    return hint
+}
+
 function getRnd(min, max) {
     let step1 = max - min + 1;
     let step2 = Math.random() * step1;
@@ -114,7 +159,6 @@ function getRndWord() {
     }
 
     let final_word = word.filter(item => item.trim() !== '');
-
     return final_word;
 }
 
@@ -136,27 +180,6 @@ function genWrdBlocks() {
 
 // =========================================
 
-// document.querySelector("#hint").addEventListener("click", hint);
-function hint() {
-    if (firstTime && tries > 2) {
-        openHint();
-    } else if (tries > 2 && !firstTime) {
-        let arr = [];
-        blocks.forEach((block) => {
-            if (!block.classList.contains("visible")) {
-                arr.push(block);
-            }
-        });
-        arr[getRnd(0, arr.length - 1)].classList.add("visible");
-        tries = tries - 2;
-        document.querySelector(".tries").innerHTML = `tries: ${tries}`;
-        setImg();
-        winLose();
-    } else if (tries <= 2) {
-        tries0();
-    }
-}
-
 function resetAll() {
     tries = 0;
     document.querySelector(".tries").innerHTML = "";
@@ -167,6 +190,7 @@ function resetAll() {
     clearFails();
     clearMainDiv();
     enableStart();
+    document.getElementById("hint-text").innerText = "";
 }
 
 function clearFails() {
@@ -312,12 +336,4 @@ function setFirtTimeFalse() {
     firstTime = false;
     closeHint();
     hint();
-}
-
-function tries0() {
-    // when player has not enough tries
-    openTries0();
-    setTimeout(() => {
-        closeTries0();
-    }, 1000);
 }
