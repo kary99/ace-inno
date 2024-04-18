@@ -21,7 +21,7 @@ let words = [
     "generativeai",
     "innovation",
 	"clustering",
-	"sematicai", 
+	"semanticai", 
 	"copilot" 
 ];
 
